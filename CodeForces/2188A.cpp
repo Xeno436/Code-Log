@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <cstring>
 using namespace std;
 int const maxn = 1e2 + 7;
 int t, n;
