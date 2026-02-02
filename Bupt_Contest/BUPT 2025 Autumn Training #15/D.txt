@@ -1,0 +1,47 @@
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+using namespace std;
+int const maxn = 1e5 + 7;
+string c[4], d[4];
+struct node
+{
+    int a, id;
+} b[4];
+bool cmp(node a, node b)
+{
+    return a.a < b.a;
+}
+int main()
+{
+    for (int i = 1; i <= 3; ++i)
+    {
+        scanf("%d", &b[i].a);
+    }
+    swap(b[2].a, b[3].a);
+    b[1].id = 1, b[2].id = 2, b[3].id = 3;
+    sort(b + 1, b + 3 + 1, cmp);
+    if (b[1].a + b[2].a < b[3].a)
+    {
+        printf("No");
+        return 0;
+    }
+    printf("Yes\n");
+    int x = b[1].a + b[2].a - b[3].a;
+    for (int i = 1; i <= b[1].a - x; ++i)
+        c[2] += 'b';
+    for (int i = 1; i <= b[2].a - x; ++i)
+        c[3] += 'c';
+    for (int i = 1; i <= 3; ++i)
+    {
+        c[i] += 'a';
+        for (int j = 1; j <= x; ++j)
+            c[i] += 'c' + (i);
+    }
+    for (int i = 1; i <= 3; ++i)
+        d[b[i].id] = c[i];
+    cout << d[1] << endl
+         << d[3] << endl
+         << d[2];
+    return 0;
+}
