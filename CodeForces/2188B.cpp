@@ -13,7 +13,6 @@ int main() {
         // {
         //     puts("");
         // }
-
         int l = 0, r = -1, t, ans = 0;
         for (int i = 0; i < n; ++i) {
             if (s[i] == '1') {
